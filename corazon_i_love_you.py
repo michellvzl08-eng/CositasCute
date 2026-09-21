@@ -1,12 +1,10 @@
 """
 corazon_i_love_you.py
-Hecho por Michell (Annette Michell Valenzuela Rodriguez)
+Hecho por Michell (Michi) con inspo en otro repo
 
-Idea: dibujar un corazon en la terminal usando puro texto "I love you",
-que se va llenando poco a poco desde las orillas hacia el centro, y al
-final deja el mensaje "I LOVE YOU" bien grande.
+Idea: dibujar un corazon en la terminal
 
-Nota para mi: si quiero que sea mas lento o mas rapido, solo cambio
+Nota: si quiero que sea mas lento o mas rapido, solo cambio
 FILL_DURATION y HOLD_DURATION mas abajo. Corre mejor haciendo doble
 clic en abrir_corazon.bat en vez de meterlo desde Visual Studio.
 """
@@ -15,7 +13,7 @@ import os
 import sys
 import time
 
-# ---- colores y utilerias de terminal (codigos ANSI) ----
+#colores y utilerias de terminal (codigos ANSI)
 ROJO = "\033[91m"
 ROJO_NEGRITA = "\033[1;91m"
 RESET = "\033[0m"
@@ -24,7 +22,7 @@ MOSTRAR_CURSOR = "\033[?25h"
 # el \033[40m fuerza fondo negro aunque mi terminal tenga otro tema
 LIMPIAR_PANTALLA = "\033[H\033[J\033[40m"
 
-# ---- aqui controlo el tamano y la velocidad ----
+#aqui controlo el tamano y la velocidad
 ANCHO = 62              # columnas de la cuadricula
 ALTO = 30                # renglones de la cuadricula
 DURACION_LLENADO = 22.0    # segundos en llenarse el corazon (mas alto = mas lento)
@@ -57,7 +55,7 @@ def construir_tramos(mascara, valores):
     """
     Agrupo cada renglon en tramos continuos (para que siempre se vea
     la palabra completa y no una letra suelta) y calculo el promedio
-    de 'profundidad' de cada tramo. Despues ordeno del mas cercano a
+    de (profundidad) de cada tramo. Despues ordeno del mas cercano a
     la orilla al mas cercano al centro.
     """
     tramos = []
@@ -98,7 +96,7 @@ def dibujar_cuadro(mascara, revelado):
     return "\n".join(lineas)
 
 
-# ---- letras de bloque, chiquitas, para el mensaje final ----
+#letras de bloque, chiquitas, para el mensaje final
 FUENTE = {
     "I": ["███", " █ ", " █ ", " █ ", "███"],
     "L": ["█   ", "█   ", "█   ", "█   ", "████"],
